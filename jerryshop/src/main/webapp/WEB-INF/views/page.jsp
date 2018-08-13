@@ -26,8 +26,10 @@
 </script>
 
 <!-- Bootstrap core CSS -->
+<!--  
+<link href="${css}/bootstap-yeti-theme.css" rel="stylesheet">
+-->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
-
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
 
@@ -37,30 +39,33 @@
 </head>
 
 <body>
+	<div class="wrapper">
+		<!-- Navigation -->
+		<%@include file="./shared/navbar.jsp"%>
+		<div class="content">
+			<!-- Page Content -->
+			<c:if test="${userClickHome==true}">
+				<%@include file="home.jsp"%>
+			</c:if>
+			<c:if test="${userClickAbout==true}">
+				<%@include file="about.jsp"%>
+			</c:if>
+			<c:if test="${userClickContact==true}">
+				<%@include file="contact.jsp"%>
+			</c:if>
+		</div>
+		<!-- /.container -->
 
-	<!-- Navigation -->
-	<%@include file="./shared/navbar.jsp"%>
+		<!-- Footer -->
+		<%@include file="./shared/footer.jsp"%>
 
-	<!-- Page Content -->
-	<c:if test="${userClickHome==true}">
-		<%@include file="home.jsp"%>
-	</c:if>
-	<c:if test="${userClickAbout==true}">
-		<%@include file="about.jsp"%>
-	</c:if>
-	<c:if test="${userClickContact==true}">
-		<%@include file="contact.jsp"%>
-	</c:if>
-	<!-- /.container -->
+		<!-- Bootstrap core JavaScript -->
+		<script src="${js}/jquery.min.js"></script>
+		<script src="${js}/bootstrap.bundle.min.js"></script>
+		<!-- self core JavaScript -->
+		<script src="${js}/myapp.js"></script>
 
-	<!-- Footer -->
-	<%@include file="./shared/footer.jsp"%>
-
-	<!-- Bootstrap core JavaScript -->
-	<script src="${js}/jquery.min.js"></script>
-	<script src="${js}/bootstrap.bundle.min.js"></script>
-	<!-- self core JavaScript -->
-	<script src="${js}/myapp.js"></script>
+	</div>
 </body>
 
 </html>
