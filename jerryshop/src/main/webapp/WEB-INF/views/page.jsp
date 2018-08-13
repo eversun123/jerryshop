@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="spring" uri="http://www.springframework.org/tags"%>
 
@@ -19,7 +19,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>Shop Homepage - Start Bootstrap Template</title>
+<title>富裕商店 - ${title}</title>
 
 <!-- Bootstrap core CSS -->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
@@ -38,7 +38,15 @@
 	<%@include file="./shared/navbar.jsp"%>
 
 	<!-- Page Content -->
-	<%@include file="home.jsp"%>
+	<c:if test="${userClickHome==true}">
+		<%@include file="home.jsp"%>
+	</c:if>
+	<c:if test="${userClickAbout==true}">
+		<%@include file="about.jsp"%>
+	</c:if>
+	<c:if test="${userClickContact==true}">
+		<%@include file="contact.jsp"%>
+	</c:if>
 	<!-- /.container -->
 
 	<!-- Footer -->

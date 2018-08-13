@@ -12,7 +12,11 @@
 	<!-- Version information will be stored here -->
 	<properties>
 		<javaee.version>7.0</javaee.version>
+
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
 	</properties>
+
 	<dependencies>
 		<!-- JAVA EE -->
 		<dependency>
