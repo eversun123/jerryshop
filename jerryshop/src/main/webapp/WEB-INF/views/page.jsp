@@ -28,10 +28,13 @@
 <!-- Bootstrap core CSS -->
 <!--  
 <link href="${css}/bootstap-yeti-theme.css" rel="stylesheet">
--->
 <link href="${css}/bootstrap.min.css" rel="stylesheet">
+-->
+<link href="${css}/bootstrap-journal-theme.css" rel="stylesheet">
+
 <!-- Custom styles for this template -->
 <link href="${css}/myapp.css" rel="stylesheet">
+
 
 <script type="text/javascript"
 	src="https://gc.kis.v2.scr.kaspersky-labs.com/40071A78-60C7-3D46-B8E1-E2FBCF186CB4/main.js"
