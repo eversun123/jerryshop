@@ -18,7 +18,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 		
 		//add first category
 		category.setId(1);
-		category.setName("Television");
+		category.setName("电视");
 		category.setDescription("This is some description for Television");
 		category.setImageURL("CAT_1.png");
 		
@@ -27,7 +27,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 		//second category
 		category = new Category();
 		category.setId(2);
-		category.setName("Mobile");
+		category.setName("手机");
 		category.setDescription("This is some description for Mobile");
 		category.setImageURL("CAT_2.png");		
 
@@ -36,7 +36,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 		//second category
 		category = new Category();
 		category.setId(3);
-		category.setName("Laptop");
+		category.setName("电脑");
 		category.setDescription("This is some description for Laptop");
 		category.setImageURL("CAT_3.png");		
 
