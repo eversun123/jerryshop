@@ -14,10 +14,10 @@
 
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-	
-<div class="col-md-3">
-	<p class="lead">富裕商店</p>
-	<c:forEach items="${categories }" var="category">
-		<a href="#" class="list-group-item">${category.name}</a>
-	</c:forEach>
-</div>
+
+
+<p class="lead">富裕商店</p>
+<c:forEach items="${categories }" var="category">
+	<a href="${contextRoot }/show/category/${category.id}/products"
+		class="list-group-item" id="a_${category.name }">${category.name}</a>
+</c:forEach>
