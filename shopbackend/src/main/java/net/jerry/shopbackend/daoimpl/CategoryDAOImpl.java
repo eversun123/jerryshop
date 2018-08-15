@@ -14,7 +14,7 @@ import net.jerry.shopbackend.dto.Category;
 @Repository("categoryDAO")
 public class CategoryDAOImpl implements CategoryDAO {
 
-	//@Autowired
+	@Autowired
 	private SessionFactory sessionFactory;
 
 	private static List<Category> categories = new ArrayList<Category>();
@@ -64,7 +64,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 		return null;
 	}
 
-
+	//@Override
 	@Transactional
 	public boolean add(Category category) {
 

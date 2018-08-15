@@ -1,8 +1,5 @@
 package net.jerry.shopbackend.config;
 
-
-
-
 import java.util.Properties;
 
 import javax.sql.DataSource;
@@ -23,12 +20,12 @@ public class HibernateConfig {
 	
 	//change below base on DBMS you choose
 	private final static String DATABASE_URL="jdbc:h2:tcp://localhost/~/jerryshop";
-	private final static String DATABASE_DRIVER="jdbc:h2:tcp://localhost/~/jerryshop";
+	private final static String DATABASE_DRIVER="org.h2.Driver";
 	private final static String DATABASE_DIALECT="org.hibernate.dialect.H2Dialect";
 	private final static String DATABASE_USERNAME="sa";
 	private final static String DATABASE_PASSWORD="";
 
-	@Bean
+	@Bean("dataSource")
 	public DataSource getDataSource() {
 		
 		BasicDataSource dataSource = new BasicDataSource();
@@ -40,8 +37,6 @@ public class HibernateConfig {
 		dataSource.setPassword(DATABASE_PASSWORD);
 		
 		return dataSource;
-		
-		
 	}
 	
 	@Bean 
@@ -67,7 +62,7 @@ public class HibernateConfig {
 	}
 	//
 	@Bean
-	public HibernateTransactionManager geTransactionManager(SessionFactory sessionFactory) {
+	public HibernateTransactionManager getTransactionManager(SessionFactory sessionFactory) {
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager(sessionFactory);
 		return transactionManager;
 	}

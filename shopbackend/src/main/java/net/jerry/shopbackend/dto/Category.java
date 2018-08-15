@@ -51,16 +51,16 @@ public class Category {
 	/*
 	 * Private fields
 	 * */
-	//@Id
-	//@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
 	private String description;
 	
-	//@Column(name = "image_url")
+	@Column(name = "image_url")
 	private String imageURL;
 	
-	//@Column(name="is_actived")
+	@Column(name="is_active")
 	private boolean active = true;
 
 }
