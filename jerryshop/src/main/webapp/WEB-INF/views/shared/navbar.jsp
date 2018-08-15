@@ -47,7 +47,7 @@
 					href="${contextRoot}/contact">Contact</a></li>
 				<li id="listProducts" class="nav-item"><a class="nav-link"
 					href="${contextRoot}/show/all/products">View Products</a></li>
-				<li id="about " class="nav-item"><a class="nav-link" href="${contextRoot}/about">About</a></li>
+				<li id="about" class="nav-item"><a class="nav-link" href="${contextRoot}/about">About</a></li>
 			</ul>
 		</div>
 		<!-- /.navbar-collapse -->

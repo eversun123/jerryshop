@@ -16,7 +16,7 @@
 	pageEncoding="utf-8"%>
 
 
-<p class="lead">富裕商店</p>
+<p class="lead">幸福商店</p>
 <c:forEach items="${categories }" var="category">
 	<a href="${contextRoot }/show/category/${category.id}/products"
 		class="list-group-item" id="a_${category.name }">${category.name}</a>

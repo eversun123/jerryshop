@@ -19,7 +19,7 @@
 <meta name="description" content="">
 <meta name="author" content="">
 
-<title>富裕商店 - ${title}</title>
+<title>幸福商店 - ${title}</title>
 
 <script type="text/javascript">
 	window.menu = '${title}';
