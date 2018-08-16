@@ -71,11 +71,11 @@ public class CategoryTestCase {
 		assertEquals("Successfully delete a category inside the table!",true, categoryDAO.delete(category));
 		
 	}*/
-	
-	@Test
-	public void testListCategory() {
-		
-		assertEquals("Successfully got category list inside the table!",2, categoryDAO.list().size());
-		
-	}
+//	
+//	@Test
+//	public void testListCategory() {
+//		
+//		assertEquals("Successfully got category list inside the table!",2, categoryDAO.list().size());
+//		
+//	}
 }

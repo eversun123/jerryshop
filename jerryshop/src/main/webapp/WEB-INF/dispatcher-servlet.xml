@@ -18,7 +18,7 @@ classpath:/org/springframework/beans/factory/xml/spring-beans-4.3.xsd
 	<context:component-scan
 		base-package="net.jerry.jerryshop.controller" />
 	<context:component-scan
-		base-package="net.jerry.shopbackend.daoimpl" />
+		base-package="net.jerry.shopbackend" />
 				
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
