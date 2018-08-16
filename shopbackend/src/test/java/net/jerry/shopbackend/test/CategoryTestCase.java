@@ -30,17 +30,52 @@ public class CategoryTestCase {
 	
 	}
 	
-	@Test
-	public  void testAddCategory() {
+//	@Test
+//	public  void testAddCategory() {
+//		
+//		category = new Category();
+//		
+//		category.setName("电视");
+//		category.setDescription("This is some description for Television");
+//		category.setImageURL("CAT_1.png");
+//		
+//		assertEquals("Successfully added a category inside the table!",true, categoryDAO.add(category));
+//		
+//	}
+	
+/*	@Test
+	public void testGetCategory() {
 		
-		category = new Category();
+		category = categoryDAO.get(3);
 		
-		category.setName("电视");
-		category.setDescription("This is some description for Television");
-		category.setImageURL("CAT_1.png");
+		assertEquals("Successfully got a category inside the table!","Mobile", category.getName());
 		
-		assertEquals("Successfully added a category inside the table!",true, categoryDAO.add(category));
+	}*/
+	
+/*	@Test
+	public void testUpdateCategory() {
+		
+		category = categoryDAO.get(3);
+		
+		category.setName("update");
+		
+		assertEquals("Successfully update a category inside the table!",true, categoryDAO.update(category));
 		
 	}
+	*/
+/*	@Test
+	public void testDeleteCategory() {
+		
+		category = categoryDAO.get(3);
+		
+		assertEquals("Successfully delete a category inside the table!",true, categoryDAO.delete(category));
+		
+	}*/
 	
+	@Test
+	public void testListCategory() {
+		
+		assertEquals("Successfully got category list inside the table!",2, categoryDAO.list().size());
+		
+	}
 }
