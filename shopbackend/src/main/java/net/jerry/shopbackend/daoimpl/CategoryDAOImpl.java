@@ -20,6 +20,7 @@ public class CategoryDAOImpl implements CategoryDAO {
 	private SessionFactory sessionFactory;
 
 
+	//@Override
 	public List<Category> list() {
 		
 		String selectActiveCategory ="FROM Category WHERE active= :active"; //note category
