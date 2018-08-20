@@ -72,6 +72,9 @@
 		<!-- jQuery -->
 		<script src="${js}/jquery.js"></script>
 
+		<!-- data table plugin-->
+		<script src="${js}/jquery.dataTables.js"></script>
+		
 		<!-- Bootstrap Core JavaScript -->
 		<script src="${js}/bootstrap.min.js"></script>
 		<script src="${js}/myapp.js"></script>
