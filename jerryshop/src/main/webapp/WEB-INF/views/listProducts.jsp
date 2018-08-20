@@ -44,6 +44,7 @@
 								<th>Brand</th>
 								<th>Price</th>
 								<th>Quantity</th>
+								<th></th>
 							</tr>
 						</thead>
 						<tfoot>
@@ -52,6 +53,7 @@
 								<th>Brand</th>
 								<th>Price</th>
 								<th>Quantity</th>
+								<th></th>
 							</tr>
 						</tfoot>
 					</table>

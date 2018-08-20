@@ -58,6 +58,19 @@ if ($table.length) {
 			}
 		}, {
 			data : 'quantity'
-		} ]
+		} ,
+		{
+			data : 'id',
+			mRender: function(data,type,row){
+				
+				var str ='';
+				str+='<a href="'+window.contextRoot+'/show/'+data+'product">View</a>';
+				str+='<a href="'+window.contextRoot+'/cart/add/'+data+'product">Add to cart</a>';
+				
+				return str;
+			}
+		}
+		
+		]
 	});
 }
