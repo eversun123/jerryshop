@@ -25,52 +25,74 @@ var jsonUrl = '';
 if (window.categoryId == '') {
 	jsonUrl = window.contextRoot + '/json/data/all/products';
 } else {
-	jsonUrl = window.contextRoot + '/json/data/' + window.categoryId
-			+ '/product';
+	jsonUrl = window.contextRoot + '/json/data/category/' + window.categoryId
+			+ '/products';
 }
 
 var $table = $('#productListTable');
-function formatNumber(n) {
-    return n.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
+
 
 if ($table.length) {
 
 	console.log('Inside the table');
 
-	$table.DataTable({
-		lengthMenu : [ [ 3, 5, 10, -1 ],
-				[ '3 records', '5 records', '10 records', 'All' ] ],
-		pageLength : 5,
-		ajax : {
+	$table
+			.DataTable({
+				lengthMenu : [ [ 3, 5, 10, -1 ],
+						[ '3 records', '5 records', '10 records', 'All' ] ],
+				pageLength : 5,
+				ajax : {
 
-			url : jsonUrl,
-			dataSrc : ''
-		},
-		columns : [ {
-			data : 'name'
-		}, {
-			data : 'brand'
-		}, {
-			data : 'unitPrice',
-			mRender : function(data, type, row) {
-				return '&#65509;' + data;
-			}
-		}, {
-			data : 'quantity'
-		} ,
-		{
-			data : 'id',
-			mRender: function(data,type,row){
-				
-				var str ='';
-				str+='<a href="'+window.contextRoot+'/show/'+data+'product">View</a>';
-				str+='<a href="'+window.contextRoot+'/cart/add/'+data+'product">Add to cart</a>';
-				
-				return str;
-			}
-		}
-		
-		]
-	});
+					url : jsonUrl,
+					dataSrc : ''
+				},
+				columns : [
+						{
+							data : 'code',
+							mRender: function(data,type,row) {
+								return '<img src="'+window.contextRoot+'/resources/images/'+data+'.jpg" class = "dataTableImg"/>'; 
+							}
+						},
+						{
+							data : 'name'
+						},
+						{
+							data : 'brand'
+						},
+						{
+							data : 'unitPrice',
+							mRender : function(data, type, row) {
+								return '&#65509;' + data;
+							}
+						},
+						{
+							data : 'quantity'
+						},
+						{
+							data : 'id',
+							bSortable : false,
+							mRender : function(data, type, row) {
+
+								var str = '';
+								// str+='<a
+								// href="'+window.contextRoot+'/show/'+data+'product">View</a>';
+								// str+='<a
+								// href="'+window.contextRoot+'/cart/add/'+data+'product">Add
+								// to cart</a>';
+								str += '<a href="'
+										+ window.contextRoot
+										+ '/show/'
+										+ data
+										+ 'product" class="btn btn-primary"><span class = "glyphicon glyphicon-eye-open"></span>View</a> &#160;';
+								str += '<a href="'
+										+ window.contextRoot
+										+ '/cart/add/'
+										+ data
+										+ 'product" class ="btn btn-success"><span class = "glyphicon glyphicon-shopping-cart"></span></a>';
+								return str;
+							}
+						}
+
+				]
+			});
 }
