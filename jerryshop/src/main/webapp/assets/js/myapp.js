@@ -83,12 +83,12 @@ if ($table.length) {
 										+ window.contextRoot
 										+ '/show/'
 										+ data
-										+ 'product" class="btn btn-primary"><span class = "glyphicon glyphicon-eye-open"></span>View</a> &#160;';
+										+ '/product" class="btn btn-primary"><span class = "glyphicon glyphicon-eye-open"></span>View</a> &#160;';
 								str += '<a href="'
 										+ window.contextRoot
 										+ '/cart/add/'
 										+ data
-										+ 'product" class ="btn btn-success"><span class = "glyphicon glyphicon-shopping-cart"></span></a>';
+										+ '/product" class ="btn btn-success"><span class = "glyphicon glyphicon-shopping-cart"></span></a>';
 								return str;
 							}
 						}
