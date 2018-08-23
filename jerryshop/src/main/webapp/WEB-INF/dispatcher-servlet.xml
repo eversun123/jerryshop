@@ -16,7 +16,7 @@ classpath:/org/springframework/beans/factory/xml/spring-beans-4.3.xsd
     ">
 
 	<context:component-scan
-		base-package="net.jerry.jerryshop.controller" />
+		base-package="net.jerry.jerryshop" />
 	<context:component-scan
 		base-package="net.jerry.shopbackend" />
 				
