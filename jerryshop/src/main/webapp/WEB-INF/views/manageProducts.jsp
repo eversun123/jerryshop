@@ -28,7 +28,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="name" id="name"
 									placeholder="Product Name" class="form-control" />
-								<em class="help-block">Please enter Product Name</em>
+								<sf:errors path="name" cssClass="help-block" element="em" />
 							</div>
 						</div>
 						<!------------------------------------------------Brand  -->
@@ -38,7 +38,7 @@
 							<div class="col-md-8">
 								<sf:input type="text" path="brand" id="brand"
 									placeholder="Product Brand" class="form-control" />
-								<em class="help-block">Please enter Product Brand</em>
+								<sf:errors path="brand" cssClass="help-block" element="em" />
 							</div>
 						</div>
 						<!------------------------------------------------Description  -->
@@ -47,6 +47,7 @@
 							<div class="col-md-8">
 								<sf:textarea path="description" id="description" rows="4"
 									placeholder="Write a description"></sf:textarea>
+								<sf:errors path="description" cssClass="help-block" element="em" />
 							</div>
 						</div>
 						<!------------------------------------------------Unit Price  -->
@@ -56,6 +57,7 @@
 							<div class="col-md-8">
 								<sf:input type="number" path="unitPrice" id="unitPrice"
 									placeholder="Enter Unit Price" class="form-control" />
+								<sf:errors path="unitPrice" cssClass="help-block" element="em" />
 							</div>
 						</div>
 						<!------------------------------------------------Quantity -->
@@ -74,7 +76,7 @@
 							<div class="col-md-8">
 								<sf:select path="categoryId" id="categoryId"
 									class="form-control" items="${categories}" itemLabel="name"
-									 itemValue="id" />
+									itemValue="id" />
 							</div>
 						</div>
 						<!------------------------------------------------Submit  -->
