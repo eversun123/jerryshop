@@ -2,6 +2,7 @@ package net.jerry.jerryshop.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.slf4j.Logger;
@@ -16,7 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import net.jerry.jerryshop.util.FileUploadUtility;
 import net.jerry.shopbackend.dao.CategoryDAO;
 import net.jerry.shopbackend.dao.ProductDAO;
 import net.jerry.shopbackend.dto.Category;
@@ -60,7 +61,8 @@ public class ManagementController {
 	
 	//handle submit
 	@RequestMapping(value = "/products", method = RequestMethod.POST)
-	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results, Model model) {
+	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, 
+			BindingResult results, Model model, HttpServletRequest request) {
 		
 		//check errors
 		if(results.hasErrors()) {
@@ -75,6 +77,10 @@ public class ManagementController {
 		logger.info(mProduct.toString());
 		//create new product record
 		productDAO.add(mProduct);
+		
+		if(!mProduct.getFile().getOriginalFilename().equals("")) {
+			FileUploadUtility.uploadFile(request,mProduct.getFile(),mProduct.getCode());
+		}
 		return "redirect:products?operation=product";
 	}
 	

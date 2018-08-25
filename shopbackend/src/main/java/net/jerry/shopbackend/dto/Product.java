@@ -1,7 +1,9 @@
 package net.jerry.shopbackend.dto;
 
+
 import java.util.UUID;
 
+import javax.persistence.Transient;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,9 +12,11 @@ import javax.persistence.Id;
 import javax.validation.constraints.Min;
 
 import org.hibernate.validator.constraints.NotBlank;
+import org.springframework.stereotype.Component;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+@Component
 @Entity
 public class Product {
 	
@@ -46,6 +50,17 @@ public class Product {
 	private int purchases;
 	private int views;
 	
+	@Transient
+	private MultipartFile file;
+	
+	public MultipartFile getFile() {
+		return file;
+	}
+
+	public void setFile(MultipartFile file) {
+		this.file = file;
+	}
+
 	// default constructor
 	public Product() {
 		

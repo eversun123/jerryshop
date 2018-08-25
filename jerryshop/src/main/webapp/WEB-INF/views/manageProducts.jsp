@@ -19,8 +19,10 @@
 				</div>
 				<div class="panel-body">
 					<!-- Form elements -->
+					<!-- enctype for file upload -->
 					<sf:form class="form-horizontal" modelAttribute="product"
-						action="${contextRoot}/manage/products" method="POST">
+						action="${contextRoot}/manage/products" method="POST"
+						enctype="multipart/form-data">
 						<!------------------------------------------------ name -->
 						<div class="form-group">
 							<label class="control-label col-md-4" for="name">Enter
@@ -67,6 +69,14 @@
 							<div class="col-md-8">
 								<sf:input type="number" path="quantity" id="quantity"
 									placeholder="quantity available" class="form-control" />
+							</div>
+						</div>
+						<!------------------------------------------------file element for image upload -->
+						<div class="form-group">
+							<label class="control-label col-md-4" for="file">Select
+								image:</label>
+							<div class="col-md-8">
+								<sf:input type="file" path="file" id="file" class="form-control" />
 							</div>
 						</div>
 						<!------------------------------------------------Category -->

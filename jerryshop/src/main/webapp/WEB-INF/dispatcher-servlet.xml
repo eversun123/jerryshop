@@ -19,7 +19,7 @@ classpath:/org/springframework/beans/factory/xml/spring-beans-4.3.xsd
 		base-package="net.jerry.jerryshop" />
 	<context:component-scan
 		base-package="net.jerry.shopbackend" />
-				
+
 	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 
@@ -27,7 +27,9 @@ classpath:/org/springframework/beans/factory/xml/spring-beans-4.3.xsd
 		<property name="suffix" value=".jsp" />
 
 	</bean>
-
+	<!-- id must be multipartResolver -->
+	<bean id="multipartResolver"
+		class=" org.springframework.web.multipart.support.StandardServletMultipartResolver" />
 	<!-- loading static resources -->
 	<mvc:annotation-driven />
 
