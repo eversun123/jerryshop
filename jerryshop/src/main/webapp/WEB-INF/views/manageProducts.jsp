@@ -77,7 +77,7 @@
 								image:</label>
 							<div class="col-md-8">
 								<sf:input type="file" path="file" id="file" class="form-control" />
-								<sf:errors path="file" cssClass="help-block" element="em"/>
+								<sf:errors path="file" cssClass="help-block" element="em" />
 							</div>
 						</div>
 						<!------------------------------------------------Category -->
@@ -105,6 +105,83 @@
 						</div>
 					</sf:form>
 				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="col-xs-12">
+			<h3>Available Products</h3>
+			<hr />
+		</div>
+		<div class="col-xs-12">
+
+			<div style="overflow: auto">
+
+				<!-- Products table for admin -->
+				<table id="adminProductsTable"
+					class="table table-striped table-bordered">
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>&#160;</th>
+							<th>Name</th>
+							<th>Quantity</th>
+							<th>Unit Price</th>
+							<th>Active</th>
+							<th>Edit</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td>4</td>
+							<td><img class="adminDataTableImg"
+								src="${contextRoot}/resources/images/PRDMNO123PQRX.jpg"
+								alt="Macbook Pro" /></td>
+							<td>Macbook Pro</td>
+							<td>3</td>
+							<td>&#8377;54000.00</td>
+							<td><label class="switch"> <input type="checkbox"
+									checked="checked" value="4" />
+									<div class="slider"></div>
+							</label></td>
+							<td><a href="${contexRoot }/manage/4/product"
+								class="btn btn-warning"> <span
+									class="glyphicon glyphicon-pencil"></span>
+							</a></td>
+						</tr>
+
+						<tr>
+							<td>4</td>
+							<td><img class="adminDataTableImg"
+								src="${contextRoot}/resources/images/PRDMNO123PQRX.jpg"
+								alt="Macbook Pro" /></td>
+							<td>Macbook Pro</td>
+							<td>3</td>
+							<td>&#8377;54000.00</td>
+							<td><label class="switch"> <input type="checkbox"
+									value="4" />
+									<div class="slider"></div>
+							</label></td>
+							<td><a href="${contexRoot }/manage/4/product"
+								class="btn btn-warning"> <span
+									class="glyphicon glyphicon-pencil"></span>
+							</a></td>
+						</tr>
+
+					</tbody>
+					<tfoot>
+						<tr>
+							<th>Id</th>
+							<th>&#160;</th>
+							<th>Name</th>
+							<th>Quantity</th>
+							<th>Unit Price</th>
+							<th>Active</th>
+							<th>Edit</th>
+						</tr>
+					</tfoot>
+				</table>
 			</div>
 		</div>
 	</div>
