@@ -13,6 +13,7 @@ public class FileUploadUtility {
 	
 	private static final String ABS_PATH ="D:\\git\\jerryshop\\jerryshop\\src\\main\\webapp\\assets\\images";
 	private static String REAL_PATH="";
+	
 	private static final Logger logger = LoggerFactory.getLogger(FileUploadUtility.class);
 	
 	public static void uploadFile(HttpServletRequest request, MultipartFile file, String code) {
@@ -43,7 +44,4 @@ public class FileUploadUtility {
 			
 		}
 	}
-	
-
-
 }
