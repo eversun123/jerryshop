@@ -61,12 +61,33 @@ public class ManagementController {
 		return mv;
 	}
 
+	@RequestMapping(value = "/{id}/product", method = RequestMethod.GET)
+	public ModelAndView showEditProducts(@PathVariable int id) {
+		ModelAndView mv = new ModelAndView("page");
+
+		mv.addObject("userClickManageProducts", true);
+		mv.addObject("title", "Manage Products");
+
+		// fetch product from db
+		Product nProduct = productDAO.get(id);
+// Set the product fetch from db
+		mv.addObject("product", nProduct);
+
+		return mv;
+	}
+
 	// handle submit
 	@RequestMapping(value = "/products", method = RequestMethod.POST)
 	public String handleProductSubmission(@Valid @ModelAttribute("product") Product mProduct, BindingResult results,
 			Model model, HttpServletRequest request) {
 
-		new ProductValidator().validate(mProduct, results);
+		if(mProduct.getId() == 0) {
+		new ProductValidator().validate(mProduct, results);}
+		else {
+			if(!mProduct.getFile().getOriginalFilename().equals("")) {
+				new ProductValidator().validate(mProduct, results);
+			}
+		}
 
 		// check errors
 		if (results.hasErrors()) {
@@ -79,26 +100,29 @@ public class ManagementController {
 		}
 
 		logger.info(mProduct.toString());
-		// create new product record
-		productDAO.add(mProduct);
+		// create new product record or update
+		if (mProduct.getId() == 0) {
+			productDAO.add(mProduct);
+		} else {
+			productDAO.update(mProduct);
+		}
 
 		if (!mProduct.getFile().getOriginalFilename().equals("")) {
 			FileUploadUtility.uploadFile(request, mProduct.getFile(), mProduct.getCode());
 		}
 		return "redirect:products?operation=product";
 	}
-	
-	@RequestMapping(value ="/product/{id}/activation", method = RequestMethod.POST)
+
+	@RequestMapping(value = "/product/{id}/activation", method = RequestMethod.POST)
 	@ResponseBody
 	public String handleProductActivation(@PathVariable int id) {
 		Product product = productDAO.get(id);
 		boolean isActive = product.isActive();
 		product.setActive(!isActive);
 		productDAO.update(product);
-		
-		return (isActive)?
-				"You have succesfully deactivated the product with id " + product.getId() : 
-			"You have successfully activated the product with id"+product.getId();
+
+		return (isActive) ? "You have succesfully deactivated the product with id " + product.getId()
+				: "You have successfully activated the product with id" + product.getId();
 	}
 
 //for all request mapping
