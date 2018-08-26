@@ -55,6 +55,8 @@ public class ManagementController {
 		if (operation != null) {
 			if (operation.equals("product")) {
 				mv.addObject("message", "product added successfully!");
+			}else if(operation.equals("category")){
+				mv.addObject("message", "category added successfully!");	
 			}
 		}
 
@@ -124,11 +126,25 @@ public class ManagementController {
 		return (isActive) ? "You have succesfully deactivated the product with id " + product.getId()
 				: "You have successfully activated the product with id" + product.getId();
 	}
+	
+	// handle category submission
+	
+	@RequestMapping(value="/category", method=RequestMethod.POST)
+	public String handleCategorySubmission(@ModelAttribute Category category) {
+		categoryDAO.add(category);
+		
+		return "redirect:/manage/products?operation=category";
+		
+	}
 
-//for all request mapping
+	//return categories for all request mapping
 	@ModelAttribute("categories")
 	public List<Category> getCategories() {
 		return categoryDAO.list();
 	}
-
+	
+	@ModelAttribute("category")
+	public Category getCategory() {
+		return new Category();
+	}
 }
