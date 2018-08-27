@@ -6,7 +6,7 @@ import net.jerry.shopbackend.dto.User;
 
 public interface UserDAO {
 	
-	boolean addUer(User user);
+	boolean addUser(User user);
 	
 	boolean addAddress(Address address);
 	

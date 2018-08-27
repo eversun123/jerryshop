@@ -17,19 +17,34 @@ public class UserDAOImpl implements UserDAO {
 	@Autowired
 	private SessionFactory sessionFactory;
 	
-	public boolean addUer(User user) {
-		// TODO Auto-generated method stub
-		return false;
+	public boolean addUser(User user) {
+		try{
+			sessionFactory.getCurrentSession().persist(user);
+			return true;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 	public boolean addAddress(Address address) {
-		// TODO Auto-generated method stub
-		return false;
+		try{
+			sessionFactory.getCurrentSession().persist(address);
+			return true;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 	public boolean addCart(Cart cart) {
-		// TODO Auto-generated method stub
-		return false;
+		try{
+			sessionFactory.getCurrentSession().persist(cart);
+			return true;
+		}catch(Exception ex) {
+			ex.printStackTrace();
+			return false;
+		}
 	}
 
 }
