@@ -62,7 +62,7 @@ public class UserTestCase {
 			//create a cart 
 			cart = new Cart();
 			
-			cart.setUserId(user.getId());
+			cart.setUser(user);
 			assertEquals("failed to add the cart",true,userDAO.addCart(cart));
 			// add shipping address for this user
 			address = new Address();
