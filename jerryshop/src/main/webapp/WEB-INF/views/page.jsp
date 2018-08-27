@@ -22,8 +22,8 @@
 <title>幸福商店 - ${title}</title>
 
 <script type="text/javascript">
-	window.menu = '${title}';
-	window.contextRoot = '${contextRoot}';
+    window.menu = '${title}';
+    window.contextRoot = '${contextRoot}';
 </script>
 
 <!-- Bootstrap Core CSS -->
@@ -83,6 +83,9 @@
 
 		<!-- jQuery -->
 		<script src="${js}/jquery.js"></script>
+
+		<!-- jQuery validate-->
+		<script src="${js}/jquery.validate.js"></script>
 		<!-- data table plugin-->
 		<script src="${js}/jquery.dataTables.js"></script>
 		<!-- data table Bootstrap script-->

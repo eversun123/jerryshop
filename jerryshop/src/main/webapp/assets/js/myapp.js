@@ -271,5 +271,88 @@ $(function() {
 		});
     }
     // ----------------
+    // validation code for category
+	//methods required for validation
+	
+	function errorPlacement(error, element) {
+		// Add the 'help-block' class to the error element
+		error.addClass("help-block");
+		
+		// add the error label after the input element
+		error.insertAfter(element);
+		
+		
+		// add the has-feedback class to the
+		// parent div.validate in order to add icons to inputs
+		element.parents(".validate").addClass("has-feedback");	
 
+	}
+	
+    var $categoryForm = $('#categoryForm');
+    
+    if($categoryForm.length){
+	$categoryForm.validate({
+	    rules:{
+		name:{
+		    required:true,
+		    minLength:2
+		},
+		description:{
+		    required:true
+		}
+	    },
+	    messages:{
+		name:{
+		    required:'add the category name',
+		    minLength:'not be less than 2 characters'
+		},
+		description:{
+		    required:'add a description'
+		},
+		errorElement:'em',
+		errorPlacement:function(error,element){
+		    // add the class of help-block
+		    error.addClass('help-block');
+		    // add the error element after the input element
+		    error.insertAfter(element);
+		}
+	    }
+	});
+    }
+
+	$categoryForm = $('#categoryForm');
+	
+	if($categoryForm.length) {
+		
+		$categoryForm.validate({			
+				rules: {
+					name: {
+						required: true,
+						minlength: 3
+					},
+					description: {
+						required: true,
+						minlength: 3					
+					}				
+				},
+				messages: {					
+					name: {
+						required: 'Please enter product name!',
+						minlength: 'Please enter atleast five characters'
+					},
+					description: {
+						required: 'Please enter product name!',
+						minlength: 'Please enter atleast five characters'
+					}					
+				},
+				errorElement : "em",
+				errorPlacement : function(error, element) {
+					errorPlacement(error, element);
+				}				
+			}
+		
+		);
+		
+	}   
+    
 });

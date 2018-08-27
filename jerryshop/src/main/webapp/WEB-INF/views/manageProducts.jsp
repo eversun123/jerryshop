@@ -168,8 +168,9 @@
 					</button>
 					<h4 class="modal=title">Add New Category</h4>
 				</div>
+				<!-- category form -->
 				<div class="modal-body"></div>
-				<sf:form modelAttribute="category"
+				<sf:form id="categoryForm" modelAttribute="category"
 					action="${contextRoot}/manage/category" method="POST"
 					class="form-horizontal">
 					<div class="form-group">
