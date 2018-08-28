@@ -5,6 +5,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.ManyToAny;
 
 @Entity
 public class Address {
@@ -12,8 +15,6 @@ public class Address {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
-	@Column(name = "user_id")
-	private int userId;
 
 	@Column(name = "address_line_one")
 	private String addressLineOne;
@@ -36,12 +37,15 @@ public class Address {
 		this.id = id;
 	}
 
-	public int getUserId() {
-		return userId;
+	@ManyToOne
+	private User user;
+
+	public User getUser() {
+		return user;
 	}
 
-	public void setUserId(int userId) {
-		this.userId = userId;
+	public void setUser(User user) {
+		this.user = user;
 	}
 
 	public String getAddressLineOne() {
