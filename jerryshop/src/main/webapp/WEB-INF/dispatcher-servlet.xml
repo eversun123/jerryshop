@@ -5,6 +5,7 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xmlns:wf="http://www.springframework.org/schema/webflow-config"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="
     http://www.springframework.org/schema/beans
@@ -12,7 +13,9 @@ classpath:/org/springframework/beans/factory/xml/spring-beans-4.3.xsd
     http://www.springframework.org/schema/context
  classpath:/org/springframework/context/config/spring-context-4.3.xsd   
     http://www.springframework.org/schema/mvc
-    http://www.springframework.org/schema/mvc/spring-mvc.xsd          
+    http://www.springframework.org/schema/mvc/spring-mvc.xsd 
+     http://www.springframework.org/schema/webflow-config
+    http://www.springframework.org/schema/webflow-config/spring-webflow-config.xsd          
     ">
 
 	<context:component-scan
