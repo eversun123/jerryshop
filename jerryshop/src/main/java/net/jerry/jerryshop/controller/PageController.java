@@ -109,4 +109,14 @@ public class PageController {
 	}
 	
 	
+	//similar mapping to flow id
+	@RequestMapping(value = {"/register"})
+	public ModelAndView register() {
+		ModelAndView mv = new ModelAndView("page");
+
+		mv.addObject("title","All Products");
+		
+		return mv;
+	}
+	
 }

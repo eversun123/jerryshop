@@ -59,6 +59,7 @@ classpath:/org/springframework/beans/factory/xml/spring-beans-4.3.xsd
 	<bean
 		class="org.springframework.webflow.mvc.servlet.FlowHandlerMapping">
 		<property name="flowRegistry" ref="flowRegistry" />
+		<property name="order" value="-1"/>
 	</bean>
 	<bean id="viewFactoryCreator"
 		class="org.springframework.webflow.mvc.builder.MvcViewFactoryCreator">
