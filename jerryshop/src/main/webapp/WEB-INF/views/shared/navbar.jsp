@@ -21,9 +21,20 @@
 					href="${contextRoot}/contact">Contact</a></li>
 				<li id="listProducts" class="nav-item"><a class="nav-link"
 					href="${contextRoot}/show/all/products">View Products</a></li>
-				<li id="about" class="nav-item"><a class="nav-link" href="${contextRoot}/about">About</a></li>
-				<li id="manageProducts" class="nav-item"><a class="nav-link" href="${contextRoot}/manage/products">Manage Products</a></li>				
+				<li id="about" class="nav-item"><a class="nav-link"
+					href="${contextRoot}/about">About</a></li>
+				<li id="manageProducts" class="nav-item"><a class="nav-link"
+					href="${contextRoot}/manage/products">Manage Products</a></li>
 			</ul>
+
+			<ul class="nav navbar-nav navbar-right">
+
+				<li id="register"><a href="${contextRoot }/register">Sign up</a>
+				</li>
+				<li id="register"><a href="${contextRoot }/login">Login</a>
+				</li>
+			</ul>
+
 		</div>
 		<!-- /.navbar-collapse -->
 	</div>
