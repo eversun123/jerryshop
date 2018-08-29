@@ -44,7 +44,7 @@ public class Address implements Serializable{
 		this.id = id;
 	}
 
-	@ManyToOne
+/*	@ManyToOne
 	private User user;
 
 	public User getUser() {
@@ -53,6 +53,19 @@ public class Address implements Serializable{
 
 	public void setUser(User user) {
 		this.user = user;
+	}*/
+	
+	@Column(name = "user_id")
+	private int userId;
+	
+	
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 
 	public String getAddressLineOne() {
