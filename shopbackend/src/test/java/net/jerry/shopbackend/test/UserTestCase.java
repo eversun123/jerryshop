@@ -38,7 +38,7 @@ public class UserTestCase {
 		user.setEmail("hr@gmail.com");
 		user.setContactNumber("123456");
 		user.setRole("USER");
-		user.setPasswords("123456");
+		user.setPassword("123456");
 		
 		//add the user
 		assertEquals("failed to add the user",true,userDAO.addUser(user));
@@ -91,7 +91,7 @@ public class UserTestCase {
 		user.setEmail("hr@gmail.com");
 		user.setContactNumber("123456");
 		user.setRole("USER");
-		user.setPasswords("123456");
+		user.setPassword("123456");
 		
 		if(user.getRole().equals("USER")) {
 			//create a cart 
@@ -130,7 +130,7 @@ public class UserTestCase {
 		user.setEmail("hr@gmail.com");
 		user.setContactNumber("123456");
 		user.setRole("USER");
-		user.setPasswords("123456");
+		user.setPassword("123456");
 		
 		//add the user
 		assertEquals("failed to add the user",true,userDAO.addUser(user));

@@ -12,6 +12,8 @@ import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 @Entity
 @Table(name = "user_detail")
 public class User implements Serializable{
@@ -26,13 +28,19 @@ public class User implements Serializable{
 	private int id;
 	
 	@Column(name="first_name")
+	@NotBlank(message = "Please enter first name!")
 	private String firstName;
+	@NotBlank(message = "Please enter last name!")
 	@Column(name="last_name")
 	private String lastName;
+	@NotBlank(message = "Please enter email address!")
 	private String email;
 	@Column(name="contact_number")
+	@NotBlank(message = "Please enter contact number!")
 	private String contactNumber;
 	private String role;
+	@Column(name="password")
+	@NotBlank(message = "Please enter password!")
 	private String password;
 	private boolean enabled = true;
 	@Transient
@@ -93,7 +101,7 @@ public class User implements Serializable{
 	public String getPassword() {
 		return password;
 	}
-	public void setPasswords(String password) {
+	public void setPassword(String password) {
 		this.password = password;
 	}
 	public boolean isEnabled() {
@@ -105,7 +113,7 @@ public class User implements Serializable{
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
-				+ ", contactNumber=" + contactNumber + ", role=" + role + ", passwords=" + password + ", enabled="
+				+ ", contactNumber=" + contactNumber + ", role=" + role + ", password=" + password + ", enabled="
 				+ enabled + "]";
 	}
 	
