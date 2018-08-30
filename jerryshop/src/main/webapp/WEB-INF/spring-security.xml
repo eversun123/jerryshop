@@ -9,12 +9,14 @@
 		http://www.springframework.org/schema/security/spring-security.xsd
 		http://www.springframework.org/schema/context
 		http://www.springframework.org/schema/context/spring-context.xsd">
-		
-	<context:component-scan base-package="net.jerry.shopbackend"/>
-	
+	<context:component-scan
+		base-package="net.jerry.shopbackend" />
+	<http pattern="/resources/**" security="none"/>
 	<http>
-		<intercept-url pattern="/**" access="hasAuthority('USER')" />
-		<form-login />
+		<intercept-url pattern="/login" access="permitAll" />
+		<intercept-url pattern="/**"
+			access="hasAuthority('USER')" />
+		<form-login login-page="/login" />
 		<logout />
 	</http>
 

@@ -354,5 +354,40 @@ $(function() {
 		);
 		
 	}   
+	//validate login form
+	
+	$loginForm = $('#loginForm');
+	
+	if($loginForm.length) {
+		
+		$loginForm.validate({			
+				rules: {
+					username: {
+						required: true,
+						email: true
+					},
+					password: {
+						required: true,				
+					}				
+				},
+				messages: {					
+					username: {
+						required: 'Please enter user name!',
+						email: 'Please enter email address'
+					},
+					password: {
+						required: 'Please enter password!',
+						//minlength: 'Please enter atleast five characters'
+					}					
+				},
+				errorElement : "em",
+				errorPlacement : function(error, element) {
+					errorPlacement(error, element);
+				}				
+			}
+		
+		);
+		
+	}   
     
 });
