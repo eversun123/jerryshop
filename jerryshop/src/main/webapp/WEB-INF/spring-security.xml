@@ -18,6 +18,7 @@
 			access="hasAuthority('USER')" />
 		<form-login login-page="/login" />
 		<logout />
+		<!-- <csrf disabled ="true"/> -->
 	</http>
 
 	<authentication-manager>

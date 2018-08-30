@@ -23,6 +23,18 @@ $(function() {
 	break;
     }
 
+    // to tackle the csrf token
+    var token = $('meta[name="_csrf"]').attr('content');
+    var header = $('meta[name="_csrf_header"]').attr('content');
+
+    if ((token != undefined && header != undefined)
+	    && (token.length > 0 && header.length > 0)) {
+	// set the token header for the ajax request
+	$(document).ajaxSend(function(e, xhr, options) {
+	    xhr.setRequestHeader(header, token);
+	});
+    }
+
     var $table = $('#productListTable');
 
     if ($table.length) {
@@ -203,7 +215,9 @@ $(function() {
 				mRender : function(data, type, row) {
 				    var str = '';
 
-				    str += '<a href="'+window.contextRoot+'/manage/'
+				    str += '<a href="'
+					    + window.contextRoot
+					    + '/manage/'
 					    + data
 					    + '/product" class="btn btn-warning">';
 				    str += '<span class="glyphicon glyphicon-pencil"></span></a>';
@@ -272,45 +286,44 @@ $(function() {
     }
     // ----------------
     // validation code for category
-	//methods required for validation
-	
-	function errorPlacement(error, element) {
-		// Add the 'help-block' class to the error element
-		error.addClass("help-block");
-		
-		// add the error label after the input element
-		error.insertAfter(element);
-		
-		
-		// add the has-feedback class to the
-		// parent div.validate in order to add icons to inputs
-		element.parents(".validate").addClass("has-feedback");	
+    // methods required for validation
 
-	}
-	
+    function errorPlacement(error, element) {
+	// Add the 'help-block' class to the error element
+	error.addClass("help-block");
+
+	// add the error label after the input element
+	error.insertAfter(element);
+
+	// add the has-feedback class to the
+	// parent div.validate in order to add icons to inputs
+	element.parents(".validate").addClass("has-feedback");
+
+    }
+
     var $categoryForm = $('#categoryForm');
-    
-    if($categoryForm.length){
+
+    if ($categoryForm.length) {
 	$categoryForm.validate({
-	    rules:{
-		name:{
-		    required:true,
-		    minLength:2
+	    rules : {
+		name : {
+		    required : true,
+		    minLength : 2
 		},
-		description:{
-		    required:true
+		description : {
+		    required : true
 		}
 	    },
-	    messages:{
-		name:{
-		    required:'add the category name',
-		    minLength:'not be less than 2 characters'
+	    messages : {
+		name : {
+		    required : 'add the category name',
+		    minLength : 'not be less than 2 characters'
 		},
-		description:{
-		    required:'add a description'
+		description : {
+		    required : 'add a description'
 		},
-		errorElement:'em',
-		errorPlacement:function(error,element){
+		errorElement : 'em',
+		errorPlacement : function(error, element) {
 		    // add the class of help-block
 		    error.addClass('help-block');
 		    // add the error element after the input element
@@ -320,74 +333,74 @@ $(function() {
 	});
     }
 
-	$categoryForm = $('#categoryForm');
-	
-	if($categoryForm.length) {
-		
-		$categoryForm.validate({			
-				rules: {
-					name: {
-						required: true,
-						minlength: 3
-					},
-					description: {
-						required: true,
-						minlength: 3					
-					}				
-				},
-				messages: {					
-					name: {
-						required: 'Please enter product name!',
-						minlength: 'Please enter atleast five characters'
-					},
-					description: {
-						required: 'Please enter product name!',
-						minlength: 'Please enter atleast five characters'
-					}					
-				},
-				errorElement : "em",
-				errorPlacement : function(error, element) {
-					errorPlacement(error, element);
-				}				
-			}
-		
-		);
-		
-	}   
-	//validate login form
-	
-	$loginForm = $('#loginForm');
-	
-	if($loginForm.length) {
-		
-		$loginForm.validate({			
-				rules: {
-					username: {
-						required: true,
-						email: true
-					},
-					password: {
-						required: true,				
-					}				
-				},
-				messages: {					
-					username: {
-						required: 'Please enter user name!',
-						email: 'Please enter email address'
-					},
-					password: {
-						required: 'Please enter password!',
-						//minlength: 'Please enter atleast five characters'
-					}					
-				},
-				errorElement : "em",
-				errorPlacement : function(error, element) {
-					errorPlacement(error, element);
-				}				
-			}
-		
-		);
-		
-	}   
-    
+    $categoryForm = $('#categoryForm');
+
+    if ($categoryForm.length) {
+
+	$categoryForm.validate({
+	    rules : {
+		name : {
+		    required : true,
+		    minlength : 3
+		},
+		description : {
+		    required : true,
+		    minlength : 3
+		}
+	    },
+	    messages : {
+		name : {
+		    required : 'Please enter product name!',
+		    minlength : 'Please enter atleast five characters'
+		},
+		description : {
+		    required : 'Please enter product name!',
+		    minlength : 'Please enter atleast five characters'
+		}
+	    },
+	    errorElement : "em",
+	    errorPlacement : function(error, element) {
+		errorPlacement(error, element);
+	    }
+	}
+
+	);
+
+    }
+    // validate login form
+
+    $loginForm = $('#loginForm');
+
+    if ($loginForm.length) {
+
+	$loginForm.validate({
+	    rules : {
+		username : {
+		    required : true,
+		    email : true
+		},
+		password : {
+		    required : true,
+		}
+	    },
+	    messages : {
+		username : {
+		    required : 'Please enter user name!',
+		    email : 'Please enter email address'
+		},
+		password : {
+		    required : 'Please enter password!',
+		// minlength: 'Please enter atleast five characters'
+		}
+	    },
+	    errorElement : "em",
+	    errorPlacement : function(error, element) {
+		errorPlacement(error, element);
+	    }
+	}
+
+	);
+
+    }
+
 });
