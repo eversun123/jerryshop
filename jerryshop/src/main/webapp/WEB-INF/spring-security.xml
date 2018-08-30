@@ -11,12 +11,18 @@
 		http://www.springframework.org/schema/context/spring-context.xsd">
 	<context:component-scan
 		base-package="net.jerry.shopbackend" />
-	<http pattern="/resources/**" security="none"/>
+	<http pattern="/resources/**" security="none" />
 	<http>
-		<intercept-url pattern="/login" access="permitAll" />
+		<!-- only admin access -->
+		<intercept-url pattern="/manage/**"
+			access="hasAuthority('ADMIN')" />
+		<!-- only user -->
 		<intercept-url pattern="/**"
 			access="hasAuthority('USER')" />
+		<!-- rest of the world -->
+		<intercept-url pattern="/**" access="permitAll" />
 		<form-login login-page="/login" />
+		<access-denied-handler error-page ="/access-denied"/>
 		<logout />
 		<!-- <csrf disabled ="true"/> -->
 	</http>

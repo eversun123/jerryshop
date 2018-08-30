@@ -133,4 +133,15 @@ public class PageController {
 		
 		return mv;
 	}
+	
+	//access denied
+	@RequestMapping(value = "/access-denied")
+	public ModelAndView accessDenied() {
+		ModelAndView mv = new ModelAndView("error");
+
+		mv.addObject("title","403 - Access Denied");
+		mv.addObject("errorTitle","Aha! Caught you.");
+		mv.addObject("title","You are not authorized to view this page!");
+		return mv;
+	}
 }
